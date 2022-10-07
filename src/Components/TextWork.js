@@ -37,7 +37,7 @@ export default function TextWork(props) {
         props.showAlert("Copied To Clipboard.","success");
     }
     
-    const [text, setText] = useState("Enter Your Text");
+    const [text, setText] = useState("");
   return (
     <>
       <div className="container my-3 " style={{color:props.mod==='light'?'black':'white'}}>
@@ -50,19 +50,19 @@ export default function TextWork(props) {
           onChange={handleOnChnage}
           style={{backgroundColor:props.mod==='light'?'white':'#3b4248',color:props.mod==='light'?'black':'white'}}
         ></textarea>
-        <button className="btn btn-primary my-2 mx-1" onClick={handleUpClick} >UpperCase</button>
-        <button className="btn btn-primary my-2 mx-1" onClick={handleLoClick} >LowerCase</button>
-        <button className="btn btn-primary my-2 mx-1" onClick={handleExtra} >Remove Extra Spaces</button>
-        <button className="btn btn-primary my-2 mx-1" onClick={handleCopy} >Copy Text</button>
-        <button className="btn btn-primary my-2 mx-1" onClick={handleClClick} >Clear Text</button>
+        <button disabled={text.length===0} className="btn btn-primary my-2 mx-1" onClick={handleUpClick} >UpperCase</button>
+        <button disabled={text.length===0} className="btn btn-primary my-2 mx-1" onClick={handleLoClick} >LowerCase</button>
+        <button disabled={text.length===0} className="btn btn-primary my-2 mx-1" onClick={handleExtra} >Remove Extra Spaces</button>
+        <button disabled={text.length===0} className="btn btn-primary my-2 mx-1" onClick={handleCopy} >Copy Text</button>
+        <button disabled={text.length===0} className="btn btn-primary my-2 mx-1" onClick={handleClClick} >Clear Text</button>
         
       </div>
       <div className="container" style={{color:props.mod==='light'?'black':'white'}}>
         <h3>Summary Of Your Text</h3>
-        <p>{text.split(" ").length} Words , {text.length-text.split(" ").length+1} Characters</p>
-        <p>{0.08*text.split(" ").length} Minutes To Read</p>
+        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words , {text.length-text.split(" ").length+1} Characters</p>
+        <p>{0.08*text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes To Read</p>
         <h4>Preview</h4>
-        <p>{text.length>0?text:"Enter Something In Above Box To Preview Here."}</p>
+        <p>{text.length>0?text:"Nothing To Preview"}</p>
       </div>
     </>
   );

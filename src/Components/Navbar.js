@@ -39,7 +39,7 @@ export default function Navbar(props) {
               id="customSwitch1"
             />
             <label className="custom-control-label " htmlFor="customSwitch1" onClick={props.tgl} >
-              Enable Dark Mode
+              Enable DarkMode
             </label>
           </div>
         </div>

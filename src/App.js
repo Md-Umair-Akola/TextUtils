@@ -47,7 +47,7 @@ function App() {
             <About />
           </Route> */}
           {/* <Route exact path="/"> */}
-            <TextWork heading="Work Space" mod={mde} showAlert={showAlert} />
+            <TextWork heading="TextUtils : Work Space" mod={mde} showAlert={showAlert} />
           {/* </Route>
         </Switch>
       </Router> */}
