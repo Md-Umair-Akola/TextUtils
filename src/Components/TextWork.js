@@ -59,8 +59,8 @@ export default function TextWork(props) {
       </div>
       <div className="container" style={{color:props.mod==='light'?'black':'white'}}>
         <h3>Summary Of Your Text</h3>
-        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words , {text.length-text.split(" ").length+1} Characters</p>
-        <p>{0.08*text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes To Read</p>
+        <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words , {text.length-text.split(/\s/).length+1} Characters</p>
+        <p>{0.08*text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Minutes To Read</p>
         <h4>Preview</h4>
         <p>{text.length>0?text:"Nothing To Preview"}</p>
       </div>
